@@ -1,8 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
 app.UseRouting();
 
 app.MapControllerRoute(
