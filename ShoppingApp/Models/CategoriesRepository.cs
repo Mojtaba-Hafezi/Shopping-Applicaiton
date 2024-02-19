@@ -5,8 +5,8 @@
         private static List<Category> _categories = new List<Category>()
         {
             new Category{CategoryId = 1, Name="Beverage", Description="Beverage"},
-            new Category{CategoryId = 1, Name="Bakery", Description="Bakery"},
-            new Category{CategoryId = 1, Name="Meat", Description="Meat"}
+            new Category{CategoryId = 2, Name="Bakery", Description="Bakery"},
+            new Category{CategoryId = 3, Name="Meat", Description="Meat"}
         };
 
         public static void AddCategory(Category category)
@@ -34,15 +34,11 @@
 
         public static void UpdateCategory(int categoryId,  Category category)
         {
-            Category? categoryToUpdate = GetCategoryById(categoryId);
-            if( categoryToUpdate != null )
+            Category? categoryToUpdate = _categories.FirstOrDefault(x => x.CategoryId == categoryId);
+            if ( categoryToUpdate != null )
             {
-                _categories.Add(new Category
-                {
-                    CategoryId = categoryId,
-                    Name = category.Name,
-                    Description = category.Description
-                });
+                categoryToUpdate.Name = category.Name;
+                categoryToUpdate.Description = category.Description;
             }
         }
 

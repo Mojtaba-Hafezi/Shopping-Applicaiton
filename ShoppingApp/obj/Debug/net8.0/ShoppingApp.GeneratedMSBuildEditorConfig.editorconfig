@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\Mojtaba\OneDrive\Desktop\Shopping App\ShoppingApp\ShoppingApp\ShoppingApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Categories/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -26,12 +30,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Categories/_Category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xfQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/_ViewStart.cshtml]
