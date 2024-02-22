@@ -27,7 +27,7 @@ namespace ShoppingApp.Controllers
                 CategoriesRepository.UpdateCategory(category.CategoryId, category);
                 return RedirectToAction(nameof(Index));
             }
-
+            ViewBag.ActionName = "edit";
             return View(category);
         }
 
@@ -46,6 +46,7 @@ namespace ShoppingApp.Controllers
                 CategoriesRepository.AddCategory(category);
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.ActionName = "add";
             return View(category);
         }
 
