@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1B2oxDpmYmUvzNLChOMQxJrE7bWXf1gozUnPY2RnPgQ=",
+  "Hash": "Nwl/q+SKjhsCfqs7YWeBtZcHcPipDvgqYb5PbsD1lS8=",
   "Source": "ShoppingApp",
   "BasePath": "_content/ShoppingApp",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Mojtaba\\OneDrive\\Desktop\\Shopping App\\ShoppingApp\\ShoppingApp\\ShoppingApp\\wwwroot\\css\\site.css",
+      "SourceId": "ShoppingApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mojtaba\\OneDrive\\Desktop\\Shopping App\\ShoppingApp\\ShoppingApp\\ShoppingApp\\wwwroot\\",
+      "BasePath": "_content/ShoppingApp",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
     {
       "Identity": "C:\\Users\\Mojtaba\\OneDrive\\Desktop\\Shopping App\\ShoppingApp\\ShoppingApp\\ShoppingApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap.css",
       "SourceId": "ShoppingApp",

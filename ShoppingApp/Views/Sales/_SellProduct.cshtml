@@ -1,0 +1,13 @@
+﻿@model Product
+
+<form method="post" asp-controller="products" asp-action="">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" class="form-control" value="@Model.Name" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input class="form-control" type="text" value="@Model.Price" readonly />
+    </div>
+    
+</form>

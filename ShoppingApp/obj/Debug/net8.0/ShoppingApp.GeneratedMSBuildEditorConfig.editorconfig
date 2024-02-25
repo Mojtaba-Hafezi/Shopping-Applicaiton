@@ -54,8 +54,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcX1Byb2R1Y3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Products/_Products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcX1Byb2R1Y3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Sales/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Sales/_SellProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNcX1NlbGxQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Shared/Components/Transactions/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVHJhbnNhY3Rpb25zXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/Transactions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Mojtaba/OneDrive/Desktop/Shopping App/ShoppingApp/ShoppingApp/ShoppingApp/Views/_ViewImports.cshtml]

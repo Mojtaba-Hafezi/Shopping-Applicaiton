@@ -63,11 +63,16 @@ namespace ShoppingApp.Controllers
             return View(productViewModel);
         }
 
-
         public IActionResult Delete(int productId)
         {
             ProductsRepository.DeleteProduct(productId);
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult ProductsByCategoryPartial (int categoryId)
+        {
+            List<Product> products = ProductsRepository.GetProductsByCategoryId(categoryId);
+            return PartialView("_Products", products);
         }
     }
 }

@@ -4,7 +4,8 @@
     <title>
         Shopping Application
     </title>
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
 </head>
 <body>
     <header>
@@ -21,10 +22,16 @@
                             <a class="nav-link text-dark" asp-controller="home" asp-action="index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="sales" asp-action="index">Sell</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="categories" asp-action="index">Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="products" asp-action="index">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="transactions" asp-action="index">Transactions</a>
                         </li>
                     </ul>
                 </div>
@@ -38,6 +45,9 @@
     <div class="container">
         @RenderBody()
     </div>
-    @await RenderSectionAsync("Scripts", false);
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", false)
 </body>
 </html>

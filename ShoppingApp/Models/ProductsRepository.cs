@@ -1,4 +1,5 @@
-﻿namespace ShoppingApp.Models
+﻿
+namespace ShoppingApp.Models
 {
     public class ProductsRepository
     {
@@ -62,6 +63,11 @@
             {
                 _products.Remove(product);
             }
+        }
+
+        public static List<Product> GetProductsByCategoryId(int categoryId)
+        {
+            return GetProducts().Where(product => product.CategoryId == categoryId).ToList();
         }
     }
 }

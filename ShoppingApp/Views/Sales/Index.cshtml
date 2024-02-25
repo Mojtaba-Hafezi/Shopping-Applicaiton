@@ -1,0 +1,94 @@
+﻿@model SalesViewModel
+
+@section title{
+    <div class="row">
+        <div class="col-7"><h3>Cashier's console'</h3></div>
+        <div class="col-2"><label for="cashier"> Cashier Name: </label></div>
+        <div class="col-3">
+            @* Display cashier's name here *@
+        </div>
+    </div>
+}
+<br />
+<div class="row">
+    <div class="col-4">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        @* Category selection *@
+        <select asp-for="SelectedCategoryId" class="form-control">
+            <option>-- Please select --</option>
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.CategoryId">@category.Name</option>
+            }
+        </select>
+        <br />
+        <div id="productsPartial">
+            @* Product list *@
+        </div>
+        <br />
+        <div id="productDetailsPartial">
+            @* Product details *@
+        </div>
+        @* Sales form *@
+        <form method="post" asp-controller="sales" asp-action="sell" id="form-sale">
+            <input asp-for="SelectedProductId" type="hidden" />
+            <div class="form-group">
+                <label asp-for="QuantityToSell"></label>
+                <input asp-for="QuantityToSell" type="number" min="1" class="form-control"/>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit" />
+        </form>
+    </div>
+    <div class="col">
+        @*List of transactions*@
+        @await Component.InvokeAsync("Transactions","Cashier1")
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            //Initialize the form
+            $("#form-sale").hide();
+            $("#QuantityToSell").val("");
+
+            //Load the Products when the category is selected already
+            var selectedCategoryId = $("#SelectedCategoryId").val();
+            if (selectedCategoryId > 0) {
+                loadProducts(selectedCategoryId);
+            }
+
+            //Handle category selection
+            $("#SelectedCategoryId").on("change", function () {
+                loadProducts($(this).val());
+            })
+
+            //Handle product selection
+            $("#productsPartial").on("click", ".product-row", function () {
+                //Highlighting the row selected
+                $(".product-row").removeClass("highlight");
+                $(this).addClass("highlight");
+
+                //Getting the id of the product
+                var productId = $(this).attr("product-id");
+
+                //Loading the details of the product in a partial view
+                $("#productDetailsPartial").load("/sales/SellProductPartial", { productId: productId });
+                if (productId > 0) {
+                    $("#SelectedProductId").val(productId);
+                    $("#form-sale").show();
+                }
+                else {
+                    $("#SelectedProductId").val("");
+                    $("#form-sale").hide();
+                }
+
+            })
+        });
+        function loadProducts(categoryId) {
+            $("#productsPartial").load("/products/ProductsByCategoryPartial", { categoryId: categoryId });
+            $("#productDetailsPartial").html("");
+            $("#form-sale").hide();
+        }
+    </script>
+}

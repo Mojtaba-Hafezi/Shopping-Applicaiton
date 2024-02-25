@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Mojtaba\\OneDrive\\Desktop\\Shopping App\\ShoppingApp\\ShoppingApp\\ShoppingApp\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
       "Id": "C:\\Users\\Mojtaba\\OneDrive\\Desktop\\Shopping App\\ShoppingApp\\ShoppingApp\\ShoppingApp\\wwwroot\\lib\\bootstrap\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\css\\bootstrap-grid.css"
     },
