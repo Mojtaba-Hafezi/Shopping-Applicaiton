@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ShoppingApp.Interfaces;
 using ShoppingApp.Models;
 using ShoppingApp.ViewModels;
 
@@ -6,30 +7,40 @@ namespace ShoppingApp.Controllers
 {
     public class SalesController : Controller
     {
+        private readonly ICategoryService _categoryService;
+        private readonly IProductService _productService;
+        private readonly ITransactionService _transactionService;
+        public SalesController(ICategoryService categoryService, IProductService productService, ITransactionService transactionService)
+        {
+            _categoryService = categoryService;
+            _productService = productService;
+            _transactionService = transactionService;
+
+        }
         public IActionResult Index()
         {
             SalesViewModel salesViewModel = new SalesViewModel
             {
-                Categories = CategoriesRepository.GetCategories()
+                Categories = _categoryService.GetCategories()
             };
             return View(salesViewModel);
         }
 
         public IActionResult SellProductPartial(int productId)
         {
-            Product product = ProductsRepository.GetProductById(productId) ?? new Product();
+            Product product = _productService.GetProductById(productId) ?? new Product();
             return PartialView("_SellProduct", product);
         }
 
         public IActionResult Sell(SalesViewModel salesViewModel)
         {
-            var product = ProductsRepository.GetProductById(salesViewModel.SelectedProductId);
+            var product = _productService.GetProductById(salesViewModel.SelectedProductId);
             if (ModelState.IsValid)
             {
                 //Sell the product
                 if (product != null)
                 {
-                    TransactionsRepository.Add(
+                    _transactionService.Add(
                         "Cashier1",
                         salesViewModel.SelectedProductId,
                         product.Name,
@@ -39,12 +50,12 @@ namespace ShoppingApp.Controllers
                         ) ;
 
                     product.Quantity -= salesViewModel.QuantityToSell;
-                    ProductsRepository.UpdateProduct(salesViewModel.SelectedProductId, product);
+                    _productService.UpdateProduct(product);
                 }
             }
-            product = ProductsRepository.GetProductById(salesViewModel.SelectedProductId);
+            product = _productService.GetProductById(salesViewModel.SelectedProductId);
             salesViewModel.SelectedCategoryId = (product?.CategoryId == null) ? 0 : product.CategoryId.Value;
-            salesViewModel.Categories = CategoriesRepository.GetCategories();
+            salesViewModel.Categories = _categoryService.GetCategories();
             return View(nameof(Index),salesViewModel);
         }
     }

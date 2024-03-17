@@ -6,6 +6,7 @@
         <div class="col-2"><label for="cashier"> Cashier Name: </label></div>
         <div class="col-3">
             @* Display cashier's name here *@
+            Cashier1
         </div>
     </div>
 }
@@ -38,10 +39,6 @@
             </div>
             <input type="submit" class="btn btn-primary" value="Submit" />
         </form>
-    </div>
-    <div class="col">
-        @*List of transactions*@
-        @await Component.InvokeAsync("Transactions","Cashier1")
     </div>
 </div>
 

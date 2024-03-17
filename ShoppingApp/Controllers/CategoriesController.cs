@@ -1,13 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ShoppingApp.Interfaces;
 using ShoppingApp.Models;
 
 namespace ShoppingApp.Controllers
 {
     public class CategoriesController : Controller
     {
+        private readonly ICategoryService _categoryService;
+        public CategoriesController(ICategoryService categoryService)
+        {
+            _categoryService = categoryService;
+        }
         public IActionResult Index()
         {
-            List<Category> categories= CategoriesRepository.GetCategories();
+            List<Category> categories= _categoryService.GetCategories();
             return View(categories);
         }
 
@@ -15,7 +21,7 @@ namespace ShoppingApp.Controllers
         {
             ViewBag.ActionName = "edit";
             ViewBag.SubmitButtonName = "Save";
-            Category? category = CategoriesRepository.GetCategoryById(id.HasValue ? id.Value : 0);
+            Category? category = _categoryService.GetCategoryById(id.HasValue ? id.Value : 0);
             return View(category);
         }
 
@@ -24,7 +30,7 @@ namespace ShoppingApp.Controllers
         {
             if(ModelState.IsValid)
             {
-                CategoriesRepository.UpdateCategory(category.CategoryId, category);
+                _categoryService.UpdateCategory(category);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.ActionName = "edit";
@@ -43,7 +49,7 @@ namespace ShoppingApp.Controllers
         {
             if(ModelState.IsValid)
             {
-                CategoriesRepository.AddCategory(category);
+                _categoryService.AddCategory(category);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.ActionName = "add";
@@ -53,7 +59,7 @@ namespace ShoppingApp.Controllers
         
         public IActionResult Delete(int categoryId)
         {
-            CategoriesRepository.DeleteCategory(categoryId);
+            _categoryService.DeleteCategory(categoryId);
             return RedirectToAction(nameof (Index));
         }
     }

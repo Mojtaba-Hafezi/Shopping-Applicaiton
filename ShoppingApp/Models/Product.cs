@@ -4,11 +4,8 @@ namespace ShoppingApp.Models
 {
     public class Product
     {
+        [Key]
         public int ProductId { get; set; }
-
-        [Required]
-        [Display(Name = "Category")]
-        public int? CategoryId { get; set; }
 
         [Required]
         public string Name { get; set; } = string.Empty;
@@ -19,6 +16,10 @@ namespace ShoppingApp.Models
         [Required]
         [Range(0, int.MaxValue)]
         public double? Price { get; set; }
+
+        [Required]
+        [Display(Name = "Category")]
+        public int? CategoryId { get; set; }
 
         public Category? Category { get; set; }
     }

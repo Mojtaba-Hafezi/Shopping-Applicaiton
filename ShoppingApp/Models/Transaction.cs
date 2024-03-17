@@ -1,9 +1,11 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ShoppingApp.Models
 {
     public class Transaction
     {
+        [Key]
         public int TransactionId { get; set; }
         public DateTime TimeStamp { get; set; }
         public int ProductId { get; set; }

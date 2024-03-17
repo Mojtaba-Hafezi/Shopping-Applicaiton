@@ -1,10 +1,17 @@
-﻿using ShoppingApp.Models;
+﻿using ShoppingApp.Interfaces;
+using ShoppingApp.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace ShoppingApp.ViewModels.Validations
 {
     public class ProductSellQuantityValidatorAttribute: ValidationAttribute
     {
+        private readonly IProductService _productService;
+
+        public ProductSellQuantityValidatorAttribute(IProductService productService)
+        {
+            _productService = productService;
+        }
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             var salesViewModel = validationContext.ObjectInstance as SalesViewModel;
@@ -14,7 +21,7 @@ namespace ShoppingApp.ViewModels.Validations
                 {
                     return new ValidationResult("The quantity to sell should be greater than zero");
                 }
-                var product = ProductsRepository.GetProductById(salesViewModel.SelectedProductId);
+                var product = _productService.GetProductById(salesViewModel.SelectedProductId);
                 if(product != null)
                 {
                     if(product.Quantity < salesViewModel.QuantityToSell)

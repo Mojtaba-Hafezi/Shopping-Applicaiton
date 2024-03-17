@@ -1,15 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using ShoppingApp.Interfaces;
 using ShoppingApp.Models;
+using ShoppingApp.Services;
 using ShoppingApp.ViewModels;
 
 namespace ShoppingApp.Controllers
 {
     public class ProductsController : Controller
     {
+        private readonly ICategoryService _categoryService;
+        private readonly IProductService _productService;
+        public ProductsController(ICategoryService categoryService, IProductService productService)
+        {
+            _categoryService = categoryService;
+            _productService = productService;
+
+        }
         public IActionResult Index()
         {
-            List<Product> products = ProductsRepository.GetProducts();
+            List<Product> products = _productService.GetProducts();
             return View(products);
         }
 
@@ -19,8 +29,8 @@ namespace ShoppingApp.Controllers
             ViewBag.SubmitButtonName = "Save";
             ProductViewModel productViewModel = new ProductViewModel
             {
-                Product = ProductsRepository.GetProductById(id) ?? new Product(),
-                Categories = CategoriesRepository.GetCategories()
+                Product = _productService.GetProductById(id) ?? new Product(),
+                Categories = _categoryService.GetCategories()
             };
 
             return View(productViewModel);
@@ -31,11 +41,11 @@ namespace ShoppingApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                ProductsRepository.UpdateProduct(productViewModel.Product.ProductId, productViewModel.Product);
+                _productService.UpdateProduct(productViewModel.Product);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.ActionName = "edit";
-            productViewModel.Categories = CategoriesRepository.GetCategories();
+            productViewModel.Categories = _categoryService.GetCategories();
             return View(productViewModel);
         }
 
@@ -45,7 +55,7 @@ namespace ShoppingApp.Controllers
             ViewBag.SubmitButtonName = "Submit";
             ProductViewModel productViewModel = new ProductViewModel
             {
-                Categories = CategoriesRepository.GetCategories()
+                Categories = _categoryService.GetCategories()
             };
             return View(productViewModel);
         }
@@ -55,23 +65,23 @@ namespace ShoppingApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                ProductsRepository.AddProduct(productViewModel.Product);
+                _productService.AddProduct(productViewModel.Product);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.ActionName = "add";
-            productViewModel.Categories = CategoriesRepository.GetCategories();
+            productViewModel.Categories = _categoryService.GetCategories();
             return View(productViewModel);
         }
 
         public IActionResult Delete(int productId)
         {
-            ProductsRepository.DeleteProduct(productId);
+            _productService.DeleteProduct(productId);
             return RedirectToAction(nameof(Index));
         }
 
         public IActionResult ProductsByCategoryPartial (int categoryId)
         {
-            List<Product> products = ProductsRepository.GetProductsByCategoryId(categoryId);
+            List<Product> products = _productService.GetProductsByCategoryId(categoryId);
             return PartialView("_Products", products);
         }
     }
