@@ -35,24 +35,22 @@ namespace ShoppingApp.Controllers
         public IActionResult Sell(SalesViewModel salesViewModel)
         {
             var product = _productService.GetProductById(salesViewModel.SelectedProductId);
-            if (ModelState.IsValid)
+            
+            if (product != null && salesViewModel.QuantityToSell>0 && salesViewModel.QuantityToSell<= product.Quantity )
             {
-                //Sell the product
-                if (product != null)
-                {
-                    _transactionService.Add(
-                        "Cashier1",
-                        salesViewModel.SelectedProductId,
-                        product.Name,
-                        product.Price.HasValue ? product.Price.Value: 0,
-                        product.Quantity.HasValue ? product.Quantity.Value:0,
-                        salesViewModel.QuantityToSell
-                        ) ;
+                _transactionService.Add(
+                    "Cashier1",
+                    salesViewModel.SelectedProductId,
+                    product.Name,
+                    product.Price.HasValue ? product.Price.Value: 0,
+                    product.Quantity.HasValue ? product.Quantity.Value:0,
+                    salesViewModel.QuantityToSell
+                    ) ;
 
-                    product.Quantity -= salesViewModel.QuantityToSell;
-                    _productService.UpdateProduct(product);
-                }
+                product.Quantity -= salesViewModel.QuantityToSell;
+                _productService.UpdateProduct(product);
             }
+            
             product = _productService.GetProductById(salesViewModel.SelectedProductId);
             salesViewModel.SelectedCategoryId = (product?.CategoryId == null) ? 0 : product.CategoryId.Value;
             salesViewModel.Categories = _categoryService.GetCategories();

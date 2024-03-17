@@ -1,5 +1,4 @@
 ﻿using ShoppingApp.Models;
-using ShoppingApp.ViewModels.Validations;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 
@@ -13,7 +12,6 @@ namespace ShoppingApp.ViewModels
 
         [Display(Name = "Quantity")]
         [Range(1, int.MaxValue)]
-        [ProductSellQuantityValidator]
         public int QuantityToSell { get; set; }
     }
 }
