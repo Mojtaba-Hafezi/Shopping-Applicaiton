@@ -29,28 +29,28 @@ namespace ShoppingApp.Services
             _appDbContext.SaveChanges();
         }
 
-        public List<Transaction> GetByDayAndCashier(string chashierName, DateTime date)
+        public List<Transaction> GetByDayAndCashier(string cashierName, DateTime date)
         {
-            if (string.IsNullOrWhiteSpace(chashierName.ToLower()))
+            if (string.IsNullOrWhiteSpace(cashierName.ToLower()))
             {
                 return _appDbContext.Transactions.Where(t=>t.TimeStamp.Date ==  date).ToList();
             }
             else
             {
-                List<Transaction> result = _appDbContext.Transactions.Where(t => t.CashierName.ToLower().Contains(chashierName.ToLower()) && t.TimeStamp.Date == date).ToList();
+                List<Transaction> result = _appDbContext.Transactions.Where(t => t.CashierName.ToLower().Contains(cashierName.ToLower()) && t.TimeStamp.Date == date).ToList();
                 return result;
             }
         }
 
-        public List<Transaction> Search(string chashierName, DateTime startDate, DateTime endDate)
+        public List<Transaction> Search(string cashierName, DateTime startDate, DateTime endDate)
         {
-            if (string.IsNullOrWhiteSpace(chashierName))
+            if (string.IsNullOrWhiteSpace(cashierName))
             {
                 return _appDbContext.Transactions.Where(t=>t.TimeStamp.Date >= startDate.Date && t.TimeStamp<=endDate.AddDays(1).Date).ToList();
             }
             else
             {
-                return _appDbContext.Transactions.Where(t=>t.CashierName.ToLower().Contains(chashierName.ToLower()) && t.TimeStamp.Date >= startDate.Date && t.TimeStamp <= endDate.AddDays(1).Date).ToList();
+                return _appDbContext.Transactions.Where(t=>t.CashierName.ToLower().Contains(cashierName.ToLower()) && t.TimeStamp.Date >= startDate.Date && t.TimeStamp <= endDate.AddDays(1).Date).ToList();
             }
         }
     }
