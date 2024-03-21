@@ -1,26 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShoppingApp.Models
+namespace ShoppingApp.Models;
+
+public class Product
 {
-    public class Product
-    {
-        [Key]
-        public int ProductId { get; set; }
+    [Key]
+    public int ProductId { get; set; }
 
-        [Required]
-        public string Name { get; set; } = string.Empty;
+    [Required]
+    public string Name { get; set; } = string.Empty;
 
-        [Required]
-        public int? Quantity { get; set; }
+    [Required]
+    public int? Quantity { get; set; }
 
-        [Required]
-        [Range(0, int.MaxValue)]
-        public double? Price { get; set; }
+    [Required]
+    [Range(0, int.MaxValue)]
+    public double? Price { get; set; }
 
-        [Required]
-        [Display(Name = "Category")]
-        public int? CategoryId { get; set; }
+    [Required]
+    [Display(Name = "Category")]
+    public int? CategoryId { get; set; }
 
-        public Category? Category { get; set; }
-    }
+    public Category? Category { get; set; }
 }

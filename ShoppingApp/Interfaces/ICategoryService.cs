@@ -1,13 +1,12 @@
 ﻿using ShoppingApp.Models;
 
-namespace ShoppingApp.Interfaces
+namespace ShoppingApp.Interfaces;
+
+public interface ICategoryService
 {
-    public interface ICategoryService
-    {
-        void AddCategory(Category category);
-        List<Category> GetCategories();
-        Category? GetCategoryById(int id);
-        void UpdateCategory(Category category);
-        void DeleteCategory(int categoryId);
-    }
+    void AddCategory(Category category);
+    List<Category> GetCategories();
+    Category? GetCategoryById(int id);
+    void UpdateCategory(Category category);
+    void DeleteCategory(int categoryId);
 }

@@ -15,4 +15,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\Mojtaba\OneDrive\Desktop\New folder\Shopping-Application\ShoppingApp\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\Mojtaba\OneDrive\Desktop\New folder\Shopping-Application\ShoppingApp\.editorconfig" />
+  </ItemGroup>
+
 </Project>
